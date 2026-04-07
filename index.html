@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momen | Graphic Designer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-color: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --accent-color: #D4AF37; /* Gold accent */
+            --text-main: #f4f4f4;
+            --text-muted: #a0a0a0;
+            --transition: all 0.4s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* Layout & Sections */
+        section {
+            padding: 100px 10%;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.9)), url('11.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            margin-right: 15px;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--bg-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .skill-box {
+            background: var(--bg-secondary);
+            padding: 40px 20px;
+            border-radius: 10px;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .skill-box i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            background-color: var(--bg-secondary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 13, 13, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .portfolio-overlay p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay h3,
+        .portfolio-item:hover .portfolio-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Modal Lightbox (تكبير الصور) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(13, 13, 13, 0.95);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: var(--text-main);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-lightbox:hover {
+            color: var(--accent-color);
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-color);
+            border-radius: 50%;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            transition: var(--transition);
+            border: 1px solid var(--accent-color);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-color);
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333;
+            color: var(--text-muted);
+        }
+
+        /* Scroll Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Momen<span>.</span>Design</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="hero-content fade-in">
+            <h1>Hi, I'm <span>Momen</span></h1>
+            <p>Graphic Designer</p>
+            <p style="font-size: 1.1rem; margin-top: -15px; margin-bottom: 30px;">Bringing Ideas to Life Through Bold & Creative Designs.</p>
+            <a href="#portfolio" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Hire Me</a>
+        </div>
+    </header>
+
+    <section id="about" class="fade-in">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>Welcome to my creative space! I am Momen, a passionate Graphic Designer based in Alexandria, Egypt. I specialize in transforming visions into striking visual identities.</p>
+            <p>With a sharp eye for detail, I craft compelling social media posts, engaging advertising materials, and cohesive branding that makes businesses stand out. Whether designing for an edgy streetwear brand or an elegant engagement invitation, my goal is always to deliver impactful, high-quality aesthetics.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <h2>My Arsenal</h2>
+        <p class="section-subtitle">The tools and skills I use to create digital magic.</p>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <i class="fa-brands fa-adobe"></i>
+                <h3>Photoshop</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Advanced photo manipulation & retouching.</p>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-hashtag"></i>
+                <h3>Social Media Design</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Engaging content tailored for maximum reach.</p>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Advertising Design</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Bold, high-converting commercial creatives.</p>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Basic Web Design</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">HTML formatting & aesthetic UI layouts.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="fade-in">
+        <h2>Selected Works</h2>
+        <p class="section-subtitle">A glimpse into my recent design projects. (Click to enlarge)</p>
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item">
+                <img src="6.jpg" alt="Oxygen Store Brand Post">
+                <div class="portfolio-overlay">
+                    <h3>Oxygen Store</h3>
+                    <p>Clothing Brand Identity</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="3.jpg" alt="Nike Shoe Advertisement">
+                <div class="portfolio-overlay">
+                    <h3>Nike Promotion</h3>
+                    <p>Product Advertisement</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="12.jpg" alt="Cupcake Food Ad">
+                <div class="portfolio-overlay">
+                    <h3>Sweet Treats</h3>
+                    <p>Food & Beverage Ad</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="9.jpg" alt="Premium Hoodie Ad">
+                <div class="portfolio-overlay">
+                    <h3>New Arrivals</h3>
+                    <p>Apparel Showcase</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="11.jpg" alt="Engagement Invitation">
+                <div class="portfolio-overlay">
+                    <h3>Elegant Invitations</h3>
+                    <p>Print & Digital Cards</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="8.jpg" alt="Oxygen Detail Post">
+                <div class="portfolio-overlay">
+                    <h3>The Suit Details</h3>
+                    <p>Social Media Carousel</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="14.jpg" alt="Design Project">
+                <div class="portfolio-overlay">
+                    <h3>Creative Design</h3>
+                    <p>New Project</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="15.jpg" alt="Design Project">
+                <div class="portfolio-overlay">
+                    <h3>Creative Design</h3>
+                    <p>New Project</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </div>
+
+    <section id="services" class="fade-in">
+        <h2>What I Do</h2>
+        <p class="section-subtitle">Delivering premium design solutions for your brand.</p>
+        <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="skill-box" style="border: none; background: transparent;">
+                <i class="fa-solid fa-layer-group" style="font-size: 2.5rem;"></i>
+                <h3>Brand Identity</h3>
+            </div>
+            <div class="skill-box" style="border: none; background: transparent;">
+                <i class="fa-solid fa-mobile-screen" style="font-size: 2.5rem;"></i>
+                <h3>Social Media Strategy</h3>
+            </div>
+            <div class="skill-box" style="border: none; background: transparent;">
+                <i class="fa-solid fa-pen-nib" style="font-size: 2.5rem;"></i>
+                <h3>Ad Creatives</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Let's Work Together</h2>
+        <p class="section-subtitle">Ready to elevate your brand? Get in touch with me today.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:momo2004eg@gmail.com">momo2004eg@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:01206896657">01206896657</a>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/memo_694/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61587251562581" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-behance"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Momen. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 1. Scroll Animation
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // 2. Lightbox (تكبير الصور عند الضغط)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const closeLightbox = document.querySelector('.close-lightbox');
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightbox.style.display = 'flex';
+                setTimeout(() => lightbox.classList.add('active'), 10);
+            });
+        });
+
+        // قفل الـ Lightbox عند الضغط على الـ X
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            setTimeout(() => lightbox.style.display = 'none', 300);
+        });
+
+        // قفل الـ Lightbox عند الضغط في أي مكان خارج الصورة
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+                setTimeout(() => lightbox.style.display = 'none', 300);
+            }
+        });
+    </script>
+</body>
+</html>
